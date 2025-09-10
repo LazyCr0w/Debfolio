@@ -1,6 +1,7 @@
 import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
+
   {
     id: "imgverse",
     title: "IMGVERSE",
@@ -85,6 +86,39 @@ Built with React, Vite, and modern web technologies for optimal performance.`,
 
 Built with vanilla JavaScript, HTML, and CSS for maximum compatibility and minimal footprint.`,
     screenshot: "/screenshots/swiftpdf.png",
+  },
+  {
+    id: "debfolio",
+    title: "Debfolio",
+    period: {
+      start: "09.2025",
+    },
+    link: "https://github.com/LazyCr0w/Debfolio",
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "MDX",
+      "Vercel",
+      "Component Registry",
+      "PWA",
+      "SEO Optimization",
+    ],
+    description: `A modern, minimal portfolio website with integrated component registry and blog system. Built as a showcase platform for frontend development work and reusable UI components.
+
+- 🎨 Clean & modern design with light/dark theme support
+- 📱 Fully responsive and PWA-ready for mobile installation
+- 🛠️ Custom component registry powered by shadcn CLI
+- 📝 MDX-powered blog with syntax highlighting and RSS feed
+- 🔍 SEO optimized with JSON-LD schema and dynamic OG images
+- 🤖 AI-friendly with /llms.txt support for better LLM integration
+- 📧 Spam-protected contact forms with vCard integration
+- 🎯 TypeScript for type safety and better developer experience
+
+Built with Next.js 15, Tailwind CSS v4, and modern web technologies for optimal performance and developer experience.`,
+    screenshot: "/screenshots/Debfolio.png",
   },
   {
     id: "diabetes-prediction",
