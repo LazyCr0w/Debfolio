@@ -1,11 +1,10 @@
 import Image from "next/image";
 import React from "react";
 
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-
-import { Icons } from "@/components/icons";
 
 import { TECH_STACK } from "../data/tech-stack";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";

@@ -34,9 +34,9 @@ export const META_THEME_COLORS = {
 //   },
 // ];
 
-// GitHub repo info - keeping for potential future use
-// export const SOURCE_CODE_GITHUB_REPO = "LazyCr0w/debfolio";
-// export const SOURCE_CODE_GITHUB_URL = "https://github.com/LazyCr0w/debfolio";
+// GitHub repo info
+export const SOURCE_CODE_GITHUB_REPO = "LazyCr0w/debfolio";
+export const SOURCE_CODE_GITHUB_URL = "https://github.com/LazyCr0w/debfolio";
 
 export const UTM_PARAMS = {
   utm_source: "sumon-deb.vercel.app",

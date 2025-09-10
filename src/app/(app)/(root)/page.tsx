@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
+
 import { About } from "@/features/profile/components/about";
 import { Blog } from "@/features/profile/components/blog";
 import { Certifications } from "@/features/profile/components/certifications";

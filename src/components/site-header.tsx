@@ -1,8 +1,10 @@
 import Link from "next/link";
+
 import { NavItemGitHub } from "@/components/nav-item-github";
 import { NavItemLinkedIn } from "@/components/nav-item-linkedin";
 import { NavItemX } from "@/components/nav-item-x";
 import { cn } from "@/lib/utils";
+
 import { SiteHeaderWrapper } from "./site-header-wrapper";
 import { ToggleTheme } from "./toggle-theme";
 
