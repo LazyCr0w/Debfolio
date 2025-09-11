@@ -1,10 +1,8 @@
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { USER } from "@/features/profile/data/user";
-import { cn } from "@/lib/utils";
 import { FlipSentences } from "@/registry/flip-sentences";
 
 import { Overview } from "./overview";
-import { PronounceMyName } from "./pronounce-my-name";
 import { VerifiedIcon } from "./verified-icon";
 
 export function ProfileHeader() {
@@ -25,7 +23,7 @@ export function ProfileHeader() {
               <FlipSentences sentences={USER.flipSentences} />
             </div>
           </div>
-  
+
           <div>
             <Overview />
           </div>

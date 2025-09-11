@@ -23,4 +23,13 @@ export type Certification = {
    * Public verification URL or link to the certificate document. Used as the anchor href.
    */
   credentialURL: string;
+  /**
+   * Badge image URL to display (takes precedence over issuer logo if present).
+   * Provide an absolute URL or a path under /public.
+   */
+  badgeImageURL?: string;
+  /**
+   * Badge verification URL. If present, this will be used as the link instead of credentialURL.
+   */
+  badgeURL?: string;
 };

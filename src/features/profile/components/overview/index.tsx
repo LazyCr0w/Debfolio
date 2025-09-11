@@ -1,7 +1,6 @@
-import { GlobeIcon, MapPinIcon, MarsIcon, VenusIcon } from "lucide-react";
+import { MapPinIcon } from "lucide-react";
 
 import { USER } from "@/features/profile/data/user";
-import { urlToName } from "@/utils/url";
 
 import { Panel, PanelContent } from "../panel";
 import { EmailItem } from "./email-item";

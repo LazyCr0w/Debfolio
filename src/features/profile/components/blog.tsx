@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -57,11 +58,13 @@ function ProjectItem({ project }: { project: typeof PROJECTS[0] }) {
       className="group/project flex flex-col gap-2 p-2 max-sm:screen-line-before max-sm:screen-line-after sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
     >
       {(project.screenshot || project.logo) && (
-        <div className="relative select-none [&_img]:aspect-video [&_img]:rounded-xl">
-          <img
-            src={project.screenshot || project.logo}
+        <div className="relative select-none">
+          <Image
+            src={project.screenshot || project.logo!}
             alt={project.screenshot ? `${project.title} website preview` : `${project.title} logo`}
-            className="w-full rounded-xl object-cover object-top"
+            width={400}
+            height={225}
+            className="w-full rounded-xl object-cover object-top aspect-video"
           />
           <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
         </div>

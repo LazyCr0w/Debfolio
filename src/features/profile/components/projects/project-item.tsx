@@ -1,7 +1,6 @@
 import {
   ChevronsDownUpIcon,
   ChevronsUpDownIcon,
-  InfinityIcon,
   LinkIcon,
 } from "lucide-react";
 import Image from "next/image";
@@ -29,9 +28,6 @@ export function ProjectItem({
   className?: string;
   project: Project;
 }) {
-  const { start, end } = project.period;
-  const isOngoing = !end;
-
   return (
     <Collapsible defaultOpen={project.isExpanded} asChild>
       <div className={className}>

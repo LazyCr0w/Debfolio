@@ -16,69 +16,135 @@ export function CertificationItem({
   className?: string;
   certification: Certification;
 }) {
+  const imageUrl = certification.badgeImageURL || certification.issuerLogoURL;
+
   return (
-    <a
-      className={cn("group/cert flex items-center pr-2", className)}
-      href={certification.credentialURL}
-      target="_blank"
-      rel="noopener"
-    >
-      {certification.issuerLogoURL ? (
-        <Image
-          src={certification.issuerLogoURL}
-          alt={certification.issuer}
-          width={32}
-          height={32}
-          quality={100}
+    <div className={cn("group/cert flex items-center pr-2", className)}>
+      {certification.badgeURL ? (
+        <a
+          href={certification.badgeURL}
+          target="_blank"
+          rel="noopener"
           className="mx-4 flex size-6 shrink-0 select-none"
-          unoptimized
-          aria-hidden
-        />
-      ) : (
-        <div
-          className="mx-4 flex size-6 shrink-0 items-center justify-center select-none [&_svg]:size-5 [&_svg]:text-muted-foreground"
-          aria-hidden
         >
-          {getIcon(certification.issuerIconName) ?? <Icons.certificate />}
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={`${certification.issuer} badge`}
+              width={32}
+              height={32}
+              quality={100}
+              className="size-6"
+              unoptimized
+              aria-hidden
+            />
+          ) : (
+            <div className="flex size-6 items-center justify-center [&_svg]:size-5 [&_svg]:text-muted-foreground">
+              {getIcon(certification.issuerIconName) ?? <Icons.certificate />}
+            </div>
+          )}
+        </a>
+      ) : (
+        <div className="mx-4 flex size-6 shrink-0 select-none">
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={certification.issuer}
+              width={32}
+              height={32}
+              quality={100}
+              className="size-6"
+              unoptimized
+              aria-hidden
+            />
+          ) : (
+            <div className="flex size-6 items-center justify-center [&_svg]:size-5 [&_svg]:text-muted-foreground">
+              {getIcon(certification.issuerIconName) ?? <Icons.certificate />}
+            </div>
+          )}
         </div>
       )}
 
-      <div className="flex-1 space-y-1 border-l border-dashed border-edge p-4 pr-2">
-        <h3 className="leading-snug font-medium text-balance underline-offset-4 group-hover/cert:underline">
-          {certification.title}
-        </h3>
+      {certification.credentialURL ? (
+        <a
+          className="flex-1 space-y-1 border-l border-dashed border-edge p-4 pr-2 group/cert-link"
+          href={certification.credentialURL}
+          target="_blank"
+          rel="noopener"
+        >
+          <h3 className="leading-snug font-medium text-balance underline-offset-4 group-hover/cert-link:underline">
+            {certification.title}
+          </h3>
 
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-          <dl>
-            <dt className="sr-only">Issued by</dt>
-            <dd>
-              <span aria-hidden>@</span>
-              <span className="ml-0.5">{certification.issuer}</span>
-            </dd>
-          </dl>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+            <dl>
+              <dt className="sr-only">Issued by</dt>
+              <dd>
+                <span aria-hidden>@</span>
+                <span className="ml-0.5">{certification.issuer}</span>
+              </dd>
+            </dl>
 
-          <Separator
-            className="data-[orientation=vertical]:h-4"
-            orientation="vertical"
-          />
+            <Separator
+              className="data-[orientation=vertical]:h-4"
+              orientation="vertical"
+            />
 
-          <dl>
-            <dt className="sr-only">Issued on</dt>
-            <dd>
-              <time dateTime={dayjs(certification.issueDate).toISOString()}>
-                {dayjs(certification.issueDate).format("DD.MM.YYYY")}
-              </time>
-            </dd>
-          </dl>
+            <dl>
+              <dt className="sr-only">Issued on</dt>
+              <dd>
+                <time dateTime={dayjs(certification.issueDate).toISOString()}>
+                  {dayjs(certification.issueDate).format("DD.MM.YYYY")}
+                </time>
+              </dd>
+            </dl>
+          </div>
+        </a>
+      ) : (
+        <div className="flex-1 space-y-1 border-l border-dashed border-edge p-4 pr-2">
+          <h3 className="leading-snug font-medium text-balance">
+            {certification.title}
+          </h3>
+
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+            <dl>
+              <dt className="sr-only">Issued by</dt>
+              <dd>
+                <span aria-hidden>@</span>
+                <span className="ml-0.5">{certification.issuer}</span>
+              </dd>
+            </dl>
+
+            <Separator
+              className="data-[orientation=vertical]:h-4"
+              orientation="vertical"
+            />
+
+            <dl>
+              <dt className="sr-only">Issued on</dt>
+              <dd>
+                <time dateTime={dayjs(certification.issueDate).toISOString()}>
+                  {dayjs(certification.issueDate).format("DD.MM.YYYY")}
+                </time>
+              </dd>
+            </dl>
+          </div>
         </div>
-      </div>
+      )}
 
       {certification.credentialURL && (
-        <ArrowUpRightIcon
-          className="size-4 text-muted-foreground"
-          aria-hidden
-        />
+        <a
+          href={certification.credentialURL}
+          target="_blank"
+          rel="noopener"
+          className="flex items-center"
+        >
+          <ArrowUpRightIcon
+            className="size-4 text-muted-foreground"
+            aria-hidden
+          />
+        </a>
       )}
-    </a>
+    </div>
   );
 }
